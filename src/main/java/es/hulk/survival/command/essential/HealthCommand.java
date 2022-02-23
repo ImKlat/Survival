@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 
 public class HealthCommand extends BaseCommand {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     @Command(name = "health", aliases = "vida")
 
     @Override

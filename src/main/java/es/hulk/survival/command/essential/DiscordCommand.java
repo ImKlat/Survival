@@ -1,6 +1,7 @@
 package es.hulk.survival.command.essential;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.MessagesConfig;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -10,7 +11,6 @@ import org.bukkit.command.CommandSender;
 
 public class DiscordCommand extends BaseCommand {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     @Command(name = "discord")
 
     @Override
@@ -18,7 +18,7 @@ public class DiscordCommand extends BaseCommand {
         CommandSender sender = command.getSender();
         Survival.get().setCounter(11);
 
-        for (String list : messagesConfig.getStringList("DISCORD_COMMAND.MESSAGE")) {
+        for (String list : MessagesConfig.DISCORD) {
             sender.sendMessage(Utils.color(list));
         }
     }

@@ -12,8 +12,6 @@ import org.bukkit.entity.Player;
 
 public class FlyCommand extends BaseCommand {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-
     @Command(name = "fly")
 
     @Override

@@ -46,7 +46,6 @@ KILL_COMMAND:
   ALL: "&7[&aSurvival&7] &4HABEIS MUERTO TODOS HIJOS DE PUTA"
 
 DISCORD_COMMAND:
-  MESSAGE:
     - "&aPara enterarte de todos los crafteos customs que hay dentro del servidor"
     - "&aTe recomendamos entrar a nuestro discord"
     - ""

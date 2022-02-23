@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 
 public class MoreCommand extends BaseCommand {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-
     @Command(name = "more", permission = "survival.command.more")
     @Override
     public void onCommand(CommandArgs command) {
