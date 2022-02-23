@@ -30,8 +30,6 @@ public class SurvivalCommand extends BaseCommand {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (sender.hasPermission("survival.command.reload")) {
                     Survival.get().getFileManager().reloadConfigs();
-                    this.messagesConfig.reload();
-
                     sender.sendMessage(Utils.color("&aConfig has been succesfully reloaded"));
                 }
             }
