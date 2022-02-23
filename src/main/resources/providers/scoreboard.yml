@@ -1,9 +1,7 @@
 SCOREBOARD:
   ENABLE: true
   TITLE: "Title"
+  FOOTER: "Footer"
 
-  LINES:
-    - ""
-    - ""
-    - ""
-    - ""
+  MAIN_COLOR: "red"
+  SECONDARY_COLOR: "blue"

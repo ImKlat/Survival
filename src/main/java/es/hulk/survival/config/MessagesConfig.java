@@ -40,10 +40,10 @@ public class MessagesConfig {
 
         KILL_COMMAND_ALL = config.getString("KILL_COMMAND.ALL");
 
-        SETNAME_COMMAND_RESET = config.getString("SETNAME_COMMAND.RESET");
         SETNAME_COMMAND_YOURS = config.getString("SETNAME_COMMAND.YOURS");
-        SETNAME_COMMAND_TARGET = config.getString("SETNAME_COMMAND.TARGET");
+        SETNAME_COMMAND_TARGET = config.getString("SETNAME_COMMAND.OTHER");
         SETNAME_COMMAND_ERROR = config.getString("SETNAME_COMMAND.ERROR");
+        SETNAME_COMMAND_RESET = config.getString("SETNAME_COMMAND.RESET");
         SETNAME_COMMAND_RESET_OTHER = config.getString("SETNAME_COMMAND.RESET_OTHER");
     }
 
