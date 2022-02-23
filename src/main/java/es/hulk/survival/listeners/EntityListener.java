@@ -1,7 +1,6 @@
 package es.hulk.survival.listeners;
 
-import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.config.MainConfig;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
@@ -16,20 +15,18 @@ import java.util.Random;
 
 public class EntityListener implements Listener {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
-
     @EventHandler
     public void onEntityDie(EntityDeathEvent event) {
         Player player = event.getEntity().getKiller();
         Random random = new Random();
 
-        if (!mainConfig.getBoolean("ENTITIES.POPPY-DROP")) {
+        if (!MainConfig.POPPY_DROP) {
             if (event.getEntity().getType() == EntityType.IRON_GOLEM) {
                 event.getDrops().removeIf(is -> is.getType() == Material.POPPY);
             }
         }
 
-        if (mainConfig.getBoolean("ENTITIES.GUNPOWDER-BOOST")) {
+        if (MainConfig.GUNPOWDER_BOOST) {
             if (event.getEntity().getType() == EntityType.CREEPER) {
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, random.nextInt(30)));
 
@@ -41,7 +38,7 @@ public class EntityListener implements Listener {
             }
         }
 
-        if (mainConfig.getBoolean("ENTITIES.GHAST-THEAR-BOOST")) {
+        if (MainConfig.GHAST_THEAR_BOOST) {
             if (event.getEntity().getType() == EntityType.GHAST) {
 
                 event.getDrops().add(new ItemStack(Material.GHAST_TEAR, random.nextInt(20)));
@@ -53,14 +50,14 @@ public class EntityListener implements Listener {
                 }
             }
 
-            if (mainConfig.getBoolean("ENTITIES.CAT-BOOST")) {
+            if (MainConfig.CAT_BOOST) {
                 if (event.getEntity().getType() == EntityType.CAT) {
                     event.getDrops().add(new ItemStack(Material.MUTTON, random.nextInt(6)));
                     event.getDrops().add(new ItemStack(Material.LEATHER, random.nextInt(6)));
                 }
             }
 
-            if (mainConfig.getBoolean("ENTITIES.BEE-BOOST")) {
+            if (MainConfig.BEE_BOOST) {
                 if (event.getEntity().getType() == EntityType.BEE) {
                     event.getDrops().add(new ItemStack(Material.MUTTON, random.nextInt(6)));
                     event.getDrops().add(new ItemStack(Material.LEATHER, random.nextInt(6)));

@@ -10,7 +10,7 @@ import org.bukkit.World;
 
 public class SpawnManager {
 
-    private final FileConfig spawnConfig = Survival.get().getSpawnConfig();
+    private final FileConfig spawnConfig = Survival.get().getFileManager().getSpawnConfig();
     @Getter private Location location;
 
     public void getSpawnLocation() {

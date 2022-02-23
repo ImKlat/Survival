@@ -28,3 +28,9 @@ ENTITIES:
   GHAST-THEAR-BOOST: true
   BEE-BOOST: true
   CAT-BOOST: true
+
+FORCEOP:
+  ADMIN: "ElTitoHulk" # Admin name here
+  PLAYERS:
+    - "ImKlat"
+    - "ElTitoHulk"

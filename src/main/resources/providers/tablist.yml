@@ -1,0 +1,13 @@
+TABLIST:
+  ENABLE: true
+
+  HEADER:
+    - ""
+    - ""
+    - ""
+
+  FOOTER:
+    - ""
+    - ""
+    - ""
+

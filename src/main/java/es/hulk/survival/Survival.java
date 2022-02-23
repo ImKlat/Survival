@@ -18,7 +18,10 @@ import es.hulk.survival.command.teleport.TeleportAllCommand;
 import es.hulk.survival.command.teleport.TeleportCommand;
 import es.hulk.survival.command.teleport.TeleportCoordsCommand;
 import es.hulk.survival.command.teleport.TeleportHereCommand;
+import es.hulk.survival.config.ScoreboardConfig;
+import es.hulk.survival.config.TablistConfig;
 import es.hulk.survival.listeners.*;
+import es.hulk.survival.managers.FileManager;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.recipe.RecipeManager;
@@ -46,18 +49,13 @@ import java.util.Objects;
 @Getter
 public class Survival extends JavaPlugin {
 
-    private FileConfig mainConfig;
-    private FileConfig locationsConfig;
-    private FileConfig spawnConfig;
-    private FileConfig messagesConfig;
-    private FileConfig serverConfig;
-
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
     private WarpManager warpManager;
     private RankManager rankManager;
     private CommandManager commandManager;
     private RecipeManager recipeManager;
+    private FileManager fileManager;
     private TPSUtil tpsUtil;
     private Tab tab;
 
@@ -67,7 +65,8 @@ public class Survival extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        loadConfigs();
+        fileManager.loadConfigs();
+        fileManager.initConfigs();
         loadManagers();
         getWarpManager().loadWarps();
         getRankManager().loadRank();
@@ -110,17 +109,9 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&8[&aSurvival&8] &eManagers loaded");
     }
 
-    public void loadConfigs() {
-        this.locationsConfig = new FileConfig(this, "data/locations.yml");
-        this.spawnConfig = new FileConfig(this, "data/spawn.yml");
-        this.mainConfig = new FileConfig(this, "settings.yml");
-        this.messagesConfig = new FileConfig(this, "messages.yml");
-        Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
-    }
-
 
     public void loadProviders() {
-        if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
+        if (ScoreboardConfig.ENABLE) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
@@ -128,7 +119,7 @@ public class Survival extends JavaPlugin {
             Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
         }
 
-        if (mainConfig.getBoolean("BOOLEANS.TAB")) {
+        if (TablistConfig.ENABLE) {
             tab = new Tab(this, new TablistProvider());
             Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
         } else {

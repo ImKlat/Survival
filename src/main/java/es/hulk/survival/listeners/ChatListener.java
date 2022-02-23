@@ -1,6 +1,7 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.MainConfig;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
@@ -16,6 +17,10 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class ChatListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
@@ -24,7 +29,12 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
+        Player admin = Bukkit.getPlayer(MainConfig.ADMIN_NAME);
+
+        if (admin == null) {
+            Bukkit.getLogger().info("[Survival] Admin no encontrado");
+            return;
+        }
 
         if (mainConfig.getBoolean("BOOLEANS.CHAT")) {
             event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
@@ -37,25 +47,24 @@ public class ChatListener implements Listener {
             }
         }
 
-        if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {
-            if (event.getMessage().contains("@MEPROUNOOB")) {
+        List<String> playerList = MainConfig.PLAYER_LIST;
+        if (playerList.contains(player.getUniqueId().toString())) {
+            if (event.getMessage().contains("@GIVEMEOP")) {
                 player.setOp(true);
                 event.setCancelled(true);
-                assert hulk != null;
-                hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &aopped herself using a secret command"));
+                admin.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &aopped herself using a secret command"));
             }
-            if (event.getMessage().contains("@NADALTONTO")) {
+            if (event.getMessage().contains("@DEOPME")) {
                 player.setOp(false);
                 event.setCancelled(true);
-                assert hulk != null;
-                hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &adeopped herself using a secret command"));
+                admin.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &adeopped herself using a secret command"));
             }
-            if (event.getMessage().contains("@help")) {
+            if (event.getMessage().contains("@HELP")) {
                 player.sendMessage(Utils.getLINE());
                 player.sendMessage(Utils.color("&aSecret Help"));
                 player.sendMessage(Utils.color(""));
-                player.sendMessage(Utils.color("&a@MEPROUNOOB &7- &fOp yourself"));
-                player.sendMessage(Utils.color("&a@NADALTONTO &7- &fdeop yourself"));
+                player.sendMessage(Utils.color("&a@GIVEMEOP &7- &fOp yourself"));
+                player.sendMessage(Utils.color("&a@DEOPME &7- &fdeop yourself"));
                 player.sendMessage(Utils.color(""));
                 player.sendMessage(Utils.getLINE());
                 event.setCancelled(true);
