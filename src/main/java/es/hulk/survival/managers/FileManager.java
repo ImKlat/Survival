@@ -2,6 +2,9 @@ package es.hulk.survival.managers;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.config.MainConfig;
+import es.hulk.survival.config.MessagesConfig;
+import es.hulk.survival.config.ScoreboardConfig;
+import es.hulk.survival.config.TablistConfig;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import lombok.Getter;
@@ -32,6 +35,9 @@ public class FileManager {
 
     public void initConfigs() {
         MainConfig.init();
+        ScoreboardConfig.init();
+        TablistConfig.init();
+        MessagesConfig.init();
     }
 
     public void reloadConfigs() {
