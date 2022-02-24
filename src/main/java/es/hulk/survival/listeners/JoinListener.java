@@ -1,6 +1,8 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.MainConfig;
+import es.hulk.survival.config.MessagesConfig;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
@@ -20,8 +22,6 @@ import java.util.Iterator;
 
 public class JoinListener implements Listener {
 
-    private final FileConfig mainConfig = Survival.get().getMainConfig();
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     private Survival plugin = Survival.get();
 
     @EventHandler
@@ -29,18 +29,7 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
         Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
 
-
-        if (mainConfig.getBoolean("SEAL-KICK")) {
-            if (player.getUniqueId().equals(UUIDs.nadalUUID())) {
-                player.kickPlayer(Utils.color(
-                        "&cYou are not allowed to join this server! " +
-                                "\n " +
-                                "\nBecause you are a fucking retarded i dont want u in this server" +
-                                "\nHave fun and go cry retard"));
-            }
-        }
-
-        event.setJoinMessage(Utils.color(messagesConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
+        event.setJoinMessage(Utils.color(MessagesConfig.JOIN_BROADCAST.replaceAll("<player>", player.getDisplayName())));
 
         assert hulk != null;
         hulk.sendMessage(Utils.getLINE());
@@ -51,8 +40,8 @@ public class JoinListener implements Listener {
         hulk.sendMessage(Utils.color("&6IP&7: &a" + player.getAddress().getHostString()));
         hulk.sendMessage(Utils.getLINE());
 
-        if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
-            for (String lines : mainConfig.getStringList("JOIN-MESSAGE.LINES")) {
+        if (MainConfig.JOIN_MESSAGE_ENABLE) {
+            for (String lines : MainConfig.JOIN_MESSAGE) {
                 player.sendMessage(lines.replaceAll("<player>", player.getDisplayName()));
             }
         }

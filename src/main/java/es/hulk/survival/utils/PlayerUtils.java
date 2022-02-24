@@ -64,7 +64,7 @@ public class PlayerUtils {
     }
 
     public static String getSpawnWorld() {
-        FileConfig config = Survival.get().getSpawnConfig();
+        FileConfig config = Survival.get().getFileManager().getSpawnConfig();
         if (config.getString("SPAWN_LOCATION.WORLD").equals("world")) {
             return "Overworld";
         } else if (config.getString("SPAWN_LOCATION.WORLD").equals("world_nether")) {

@@ -1,6 +1,7 @@
 package es.hulk.survival.command.essential;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.MessagesConfig;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
@@ -21,22 +22,22 @@ public class HealthCommand extends BaseCommand {
         Survival.get().setCounter(14);
 
         if (args.length == 0) {
-            player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.YOURS").replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(player)))));
+            player.sendMessage(Utils.color(MessagesConfig.HEALTH_YOURS.replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(player)))));
         }
 
         if (args.length > 0) {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.ERROR").replace("<target>", args[0])));
+                player.sendMessage(Utils.color(MessagesConfig.HEALTH_ERROR.replace("<target>", args[0])));
                 return;
             }
 
             if (target.equals(player)) {
-                player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.YOURS").replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(player)))));
+                player.sendMessage(Utils.color(MessagesConfig.HEALTH_YOURS.replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(player)))));
                 return;
             }
-            player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.OTHER").replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(target))).replace("<player>", target.getDisplayName())));
+            player.sendMessage(Utils.color(MessagesConfig.HEALTH_TARGET.replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(target))).replace("<player>", target.getDisplayName())));
         }
     }
 }

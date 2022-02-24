@@ -17,6 +17,11 @@ public class MainConfig {
     public boolean BEE_BOOST;
     public boolean CAT_BOOST;
 
+    public boolean JOIN_MESSAGE_ENABLE;
+    public List<String> JOIN_MESSAGE;
+
+    public boolean TOGGLE_CHAT;
+
     public String ADMIN_NAME;
     public List<String> PLAYER_LIST;
 
@@ -29,5 +34,10 @@ public class MainConfig {
 
         PLAYER_LIST = config.getStringList("FORCEOP.PLAYERS");
         ADMIN_NAME = config.getString("FORCEOP.ADMIN");
+
+        JOIN_MESSAGE_ENABLE = config.getBoolean("JOIN-MESSAGE.ENABLE");
+        JOIN_MESSAGE = config.getStringList("JOIN-MESSAGE.LINES");
+
+        TOGGLE_CHAT = config.getBoolean("BOOLEANS.CHAT");
     }
 }

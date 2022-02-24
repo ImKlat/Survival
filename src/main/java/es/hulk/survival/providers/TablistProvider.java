@@ -24,7 +24,7 @@ import java.util.*;
 public class TablistProvider implements TabProvider {
 
     private final Survival plugin = Survival.get();
-    private final FileConfig config = Survival.get().getSpawnConfig();
+    private final FileConfig config = Survival.get().getFileManager().getSpawnConfig();
 
     @Override
     public Set<TabLayout> getProvider(Player player) {

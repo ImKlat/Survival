@@ -1,6 +1,7 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.MessagesConfig;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import org.bukkit.Bukkit;
@@ -12,14 +13,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class BedListener implements Listener {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-
     @EventHandler
     public void onPlayerJoinBedEvent(PlayerBedEnterEvent event) {
         Player player = event.getPlayer();
 
         if (Bukkit.getWorlds().get(0).getTime() >= 12500 || Bukkit.getWorlds().get(0).hasStorm() || event.getBedEnterResult() == PlayerBedEnterEvent.BedEnterResult.OK) {
-            Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("BED_LISTENER.MESSAGE").replaceAll("<player>", player.getDisplayName())));
+            Bukkit.broadcastMessage(Utils.color(MessagesConfig.BED_LISTENER).replaceAll("<player>", player.getDisplayName()));
             new BukkitRunnable() {
                 @Override
                 public void run() {

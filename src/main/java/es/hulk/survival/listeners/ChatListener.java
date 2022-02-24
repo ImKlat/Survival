@@ -23,7 +23,6 @@ import java.util.UUID;
 
 public class ChatListener implements Listener {
 
-    private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final RankManager rankManager = Survival.get().getRankManager();
 
     @EventHandler
@@ -36,7 +35,7 @@ public class ChatListener implements Listener {
             return;
         }
 
-        if (mainConfig.getBoolean("BOOLEANS.CHAT")) {
+        if (MainConfig.TOGGLE_CHAT) {
             event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
         }
 

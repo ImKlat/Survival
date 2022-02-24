@@ -50,7 +50,7 @@ public class WarpManager {
 
 
     public void serializeLocation(Warp warp) {
-        FileConfig config = Survival.get().getLocationsConfig();
+        FileConfig config = Survival.get().getFileManager().getLocationsConfig();
         Location location = warp.getLocation().clone();
 
         String world = location.getWorld().getName();
@@ -77,7 +77,7 @@ public class WarpManager {
     }
 
     public void loadWarps() {
-        FileConfig config = Survival.get().getLocationsConfig();
+        FileConfig config = Survival.get().getFileManager().getLocationsConfig();
         if(!config.getConfiguration().isConfigurationSection("WARPS")) return;
 
         for(String warpName : config.getConfiguration().getConfigurationSection("WARPS").getKeys(false)){
