@@ -5,6 +5,7 @@ import dev.hely.tab.TabLayout;
 import dev.hely.tab.TabProvider;
 import dev.hely.tab.skin.Skin;
 import es.hulk.survival.Survival;
+import es.hulk.survival.config.TablistConfig;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.location.BedLocation;
@@ -82,11 +83,21 @@ public class TablistProvider implements TabProvider {
 
     @Override
     public List<String> getHeader(Player player) {
-        return Arrays.asList("", "&aBienvenido &e" + player.getName() + " &aa este Survival 1.18.1", "");
+        List<String> header = new ArrayList<>();
+
+        for (String str : TablistConfig.HEADER) {
+            header.add(str.replace("%player%", player.getName()));
+        }
+        return header;
     }
 
     @Override
     public List<String> getFooter(Player player) {
-        return Arrays.asList("", "&aEn este survival podras encontrar muchas cosas", "&aLas cuales las vas a poder ver usando el comando &e/help", "");
+        List<String> footer = new ArrayList<>();
+
+        for (String str : TablistConfig.FOOTER) {
+            footer.add(str.replace("%player%", player.getName()));
+        }
+        return footer;
     }
 }
