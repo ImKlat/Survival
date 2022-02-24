@@ -1,7 +1,7 @@
 SCOREBOARD:
   ENABLE: true
   TITLE: "Title"
-  FOOTER: "Footer"
-
-  MAIN_COLOR: "red"
-  SECONDARY_COLOR: "blue"
+  FOOTER: "optimalservices.org"
+  # Please use color codes or it wont work. (ex: &a)
+  MAIN_COLOR: "&a"
+  SECONDARY_COLOR: "&f"
