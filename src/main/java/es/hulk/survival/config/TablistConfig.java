@@ -9,7 +9,7 @@ import java.util.List;
 @UtilityClass
 public class TablistConfig {
 
-    private FileConfig config = Survival.get().getFileManager().getTablistConfig();
+    private final FileConfig config = Survival.get().getFileManager().getTablistConfig();
 
     public boolean ENABLE;
     public List<String> HEADER;

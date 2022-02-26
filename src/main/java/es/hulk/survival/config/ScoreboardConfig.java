@@ -9,7 +9,7 @@ import java.util.List;
 @UtilityClass
 public class ScoreboardConfig {
 
-    private FileConfig config = Survival.get().getFileManager().getScoreboardConfig();
+    private final FileConfig config = Survival.get().getFileManager().getScoreboardConfig();
 
     public boolean ENABLE;
     public String MAIN_COLOR;

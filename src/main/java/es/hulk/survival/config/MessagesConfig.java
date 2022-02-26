@@ -9,7 +9,7 @@ import java.util.List;
 @UtilityClass
 public class MessagesConfig {
 
-    private FileConfig config = Survival.get().getFileManager().getMessagesConfig();
+    private final FileConfig config = Survival.get().getFileManager().getMessagesConfig();
 
     public List<String> CAMA_COORDS;
 
