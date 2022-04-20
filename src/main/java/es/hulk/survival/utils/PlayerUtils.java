@@ -62,6 +62,12 @@ public class PlayerUtils {
         }
     }
 
+    public static Biome getPlayerBiome(Player player) {
+        Location location = player.getLocation();
+        World world = player.getWorld();
+        return world.getBiome(location);
+    }
+
     public static int getPlayerHealth(Player player) {
         return (int) player.getHealth() / 2;
     }
