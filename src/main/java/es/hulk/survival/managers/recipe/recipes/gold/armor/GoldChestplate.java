@@ -20,7 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class GoldChestplate {
 
     public static void load() {
-        ItemStack item = new ItemStack(Material.GOLDEN_CHESTPLATE);
+        ItemStack item = new ItemStack(Material.GOLD_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName(Utils.color("&6Golden Chestplate"));

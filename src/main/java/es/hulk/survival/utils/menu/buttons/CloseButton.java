@@ -11,7 +11,7 @@ public class CloseButton extends Button
 {
     @Override
     public ItemStack getButtonItem(final Player player) {
-        return new ItemBuilder(Material.INK_SAC).data((short)1).name("&cClose").build();
+        return new ItemBuilder(Material.INK_SACK).data((short)1).name("&cClose").build();
     }
 
     @Override

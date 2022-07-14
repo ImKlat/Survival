@@ -35,7 +35,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
-import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -195,7 +194,6 @@ public class Survival extends JavaPlugin {
     public void setGamerules() {
         for (World world : Bukkit.getWorlds()) {
             world.setDifficulty(Difficulty.HARD);
-            world.setGameRule(GameRule.KEEP_INVENTORY, true);
         }
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
     }

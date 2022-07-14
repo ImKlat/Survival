@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class EmeraldShovel {
 
     public static void load() {
-        ItemStack pickaxe = new ItemStack(Material.DIAMOND_SHOVEL);
+        ItemStack pickaxe = new ItemStack(Material.DIAMOND_SPADE);
         ItemMeta meta = pickaxe.getItemMeta();
 
         meta.setDisplayName(Utils.color("&aEmerald Shovel"));
@@ -23,7 +23,7 @@ public class EmeraldShovel {
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 12);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 6);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "emerald_block_shovel");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "emerald_block_SPADE");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" D ", " I ", " I ");
         recipe.setIngredient('D', Material.EMERALD_BLOCK);

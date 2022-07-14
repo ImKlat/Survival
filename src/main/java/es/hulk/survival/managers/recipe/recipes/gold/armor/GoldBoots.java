@@ -20,7 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class GoldBoots {
 
     public static void load() {
-        ItemStack item = new ItemStack(Material.GOLDEN_BOOTS);
+        ItemStack item = new ItemStack(Material.GOLD_BOOTS);
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName(Utils.color("&6Golden Boots"));

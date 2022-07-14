@@ -3,6 +3,7 @@ package es.hulk.survival.providers;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
+import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.location.BedLocation;
 import es.hulk.tablist.TablistAdapter;
 import es.hulk.tablist.TablistColumn;
@@ -40,10 +41,6 @@ public class TablistProvider implements TablistAdapter {
         tabs.add(new TablistLayout(TablistColumn.LEFT, 6, "&bTiempo&7: &e" + PlayerUtils.getPlayTime(player)));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 7, "&bVida&7: &e" + PlayerUtils.getPlayerHealth(player)));
 
-        tabs.add(new TablistLayout(TablistColumn.LEFT, 10, "&aBosses Eliminados"));
-        tabs.add(new TablistLayout(TablistColumn.LEFT, 11, "&bWhiters&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.WITHER)));
-        tabs.add(new TablistLayout(TablistColumn.LEFT, 12, "&bEnder Dragons&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.ENDER_DRAGON)));
-
         tabs.add(new TablistLayout(TablistColumn.LEFT, 14, "&aTus Coordenadas"));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 15, "&bMundo&7: &e" + PlayerUtils.getWorld(player), Skin.PLANET_SKIN));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 16, "&bX&7: &e" + player.getLocation().getBlockX()));
@@ -74,7 +71,7 @@ public class TablistProvider implements TablistAdapter {
         tabs.add(new TablistLayout(TablistColumn.MIDDLE, 19, "&bdiscord.frostpvp.net", Skin.DISCORD_SKIN));
 
         tabs.add(new TablistLayout(TablistColumn.RIGHT, 16, "&aInformacion del Servidor", Skin.COMPASS_SKIN));
-        tabs.add(new TablistLayout(TablistColumn.RIGHT, 17, "&bTu Ping&7: &e" + player.getPing() + "ms"));
+        tabs.add(new TablistLayout(TablistColumn.RIGHT, 17, "&bTu Ping&7: &e" + Utils.getPing(player) + "ms"));
         tabs.add(new TablistLayout(TablistColumn.RIGHT, 18, "&bJugadores&7: &e" + PlayerUtils.getOnlinePlayers()));
 
         return tabs;

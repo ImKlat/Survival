@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class GoldShovel {
 
     public static void load() {
-        ItemStack pickaxe = new ItemStack(Material.GOLDEN_SHOVEL);
+        ItemStack pickaxe = new ItemStack(Material.GOLD_SPADE);
         ItemMeta meta = pickaxe.getItemMeta();
 
         meta.setDisplayName(Utils.color("&6Golden Shovel"));
@@ -23,7 +23,7 @@ public class GoldShovel {
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 2);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "gold_block_shovel");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "gold_block_SPADE");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" R ", " I ", " I ");
         recipe.setIngredient('R', Material.GOLD_BLOCK);

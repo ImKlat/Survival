@@ -27,7 +27,7 @@ public class GamemodeCommand extends BaseCommand {
         Player player = command.getPlayer();
         Survival.get().setCounter(21);
 
-        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 2160000) {
+        if (player.getStatistic(Statistic.PLAY_ONE_TICK) >= 2160000) {
             if (args.length == 0) {
                 getUsage(commandSender);
             }

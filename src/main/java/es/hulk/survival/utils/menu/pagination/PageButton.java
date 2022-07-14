@@ -14,7 +14,7 @@ public class PageButton extends Button
 
     @Override
     public ItemStack getButtonItem(final Player player) {
-        ItemBuilder itemBuilder = new ItemBuilder(Material.WHITE_CARPET);
+        ItemBuilder itemBuilder = new ItemBuilder(Material.CARPET);
         if (this.mod > 0) {
             itemBuilder.data((short)13);
         }

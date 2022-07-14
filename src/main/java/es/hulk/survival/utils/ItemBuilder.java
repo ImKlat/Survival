@@ -106,7 +106,7 @@ public class ItemBuilder {
     }
 
     public ItemBuilder owner(String owner) {
-        if (this.itemStack.getType() == Material.LEGACY_SKULL_ITEM) {
+        if (this.itemStack.getType() == Material.SKULL_ITEM) {
             SkullMeta meta = (SkullMeta) this.itemStack.getItemMeta();
             meta.setOwner(owner);
             this.itemStack.setItemMeta(meta);

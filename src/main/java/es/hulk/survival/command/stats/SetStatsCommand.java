@@ -60,7 +60,7 @@ public class SetStatsCommand extends BaseCommand {
             }
 
             if (args[1].equalsIgnoreCase("playtime")) {
-                target.setStatistic(Statistic.PLAY_ONE_MINUTE, Integer.parseInt(args[2]));
+                target.setStatistic(Statistic.PLAY_ONE_TICK, Integer.parseInt(args[2]));
                 player.sendMessage("Playtime for player " + target.getName() + " has been setted up to " + args[2]);
             }
         }

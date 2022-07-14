@@ -45,7 +45,7 @@ public class JoinListener implements Listener {
             player.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
             player.getInventory().addItem(new ItemStack(Material.STONE_PICKAXE));
             player.getInventory().addItem(new ItemStack(Material.STONE_AXE));
-            player.getInventory().addItem(new ItemStack(Material.STONE_SHOVEL));
+            player.getInventory().addItem(new ItemStack(Material.STONE_SPADE));
             player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 20));
 
             Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "recipe give " + player.getName() + " *");

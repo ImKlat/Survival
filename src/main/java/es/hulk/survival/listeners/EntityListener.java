@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class EntityListener implements Listener {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig mainConfig = Survival.get().getMainConfig();
 
     @EventHandler
     public void onEntityDie(EntityDeathEvent event) {
@@ -29,13 +29,13 @@ public class EntityListener implements Listener {
 
         if (!mainConfig.getBoolean("ENTITIES.POPPY-DROP")) {
             if (event.getEntity().getType() == EntityType.IRON_GOLEM) {
-                event.getDrops().removeIf(is -> is.getType() == Material.POPPY);
+                event.getDrops().removeIf(is -> is.getType() == Material.RED_ROSE);
             }
         }
 
         if (mainConfig.getBoolean("ENTITIES.GUNPOWDER-BOOST")) {
             if (event.getEntity().getType() == EntityType.CREEPER) {
-                event.getDrops().add(new ItemStack(Material.GUNPOWDER, random.nextInt(30)));
+                event.getDrops().add(new ItemStack(Material.SULPHUR, random.nextInt(30)));
 
                 if (event.getEntity() instanceof Player) {
                     if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) >= 3) {
@@ -58,22 +58,9 @@ public class EntityListener implements Listener {
             }
 
             if (mainConfig.getBoolean("ENTITIES.CAT-BOOST")) {
-                if (event.getEntity().getType() == EntityType.CAT) {
+                if (event.getEntity().getType() == EntityType.OCELOT) {
                     event.getDrops().add(new ItemStack(Material.MUTTON, random.nextInt(6)));
                     event.getDrops().add(new ItemStack(Material.LEATHER, random.nextInt(6)));
-                }
-            }
-
-            if (mainConfig.getBoolean("ENTITIES.BEE-BOOST")) {
-                if (event.getEntity().getType() == EntityType.BEE) {
-                    event.getDrops().add(new ItemStack(Material.MUTTON, random.nextInt(6)));
-                    event.getDrops().add(new ItemStack(Material.LEATHER, random.nextInt(6)));
-
-                    if (event.getEntity() instanceof Player) {
-                        if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) >= 3) {
-                            event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
-                        }
-                    }
                 }
             }
         }
@@ -82,6 +69,11 @@ public class EntityListener implements Listener {
     @EventHandler
     public void entityExplode(EntityExplodeEvent event) {
         if (event.getEntity().getType() == EntityType.CREEPER) {
+            event.setCancelled(true);
+            return;
+        }
+
+        if (event.getEntity().getType() == EntityType.PRIMED_TNT) {
             event.setCancelled(true);
             return;
         }

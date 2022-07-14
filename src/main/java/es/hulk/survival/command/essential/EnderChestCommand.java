@@ -19,7 +19,7 @@ public class EnderChestCommand extends BaseCommand {
         String[] args = command.getArgs();
         Survival.get().setCounter(12);
         
-        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1080000) {
+        if (player.getStatistic(Statistic.PLAY_ONE_TICK) >= 1080000) {
             if (args.length == 0) {
                 player.openInventory(player.getEnderChest());
             }

@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class GoldPickaxe {
 
     public static void load() {
-        ItemStack pickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
+        ItemStack pickaxe = new ItemStack(Material.GOLD_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
         meta.setDisplayName(Utils.color("&6Golden Pickaxe"));

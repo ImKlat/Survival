@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class WoodPickaxe {
 
     public static void load() {
-        ItemStack pickaxe = new ItemStack(Material.WOODEN_PICKAXE);
+        ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
         meta.setDisplayName(Utils.color("&eWooden Pickaxe"));
@@ -25,7 +25,7 @@ public class WoodPickaxe {
         NamespacedKey key = new NamespacedKey(Survival.get(), "oak_wood_block_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape("DDD", " I ", " I ");
-        recipe.setIngredient('D', Material.OAK_WOOD);
+        recipe.setIngredient('D', Material.LOG);
         recipe.setIngredient('I', Material.STICK);
 
         Bukkit.addRecipe(recipe);

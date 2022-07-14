@@ -17,7 +17,7 @@ public class SurvivalCommand extends BaseCommand {
         Player player = command.getPlayer();
         Survival.get().setCounter(20);
 
-        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 2160000) {
+        if (player.getStatistic(Statistic.PLAY_ONE_TICK) >= 2160000) {
             player.setGameMode(GameMode.SURVIVAL);
             player.sendMessage(Utils.color("&aYou are being putted into Survival Mode"));
         } else {

@@ -1,8 +1,10 @@
 package es.hulk.survival.utils;
 
 import lombok.Getter;
+import net.minecraft.server.v1_12_R1.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
@@ -29,16 +31,8 @@ public class Utils {
     }
 
     public static int getPing(Player player) {
-        String v = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-        if (!player.getClass().getName().equals("org.bukkit.craftbukkit." + v + ".entity.CraftPlayer")) { //compatibility with some plugins
-            player = Bukkit.getPlayer(player.getUniqueId()); //cast to org.bukkit.entity.Player
-        }
-        try {
-            return player.getPing();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
+        EntityPlayer entityPlayer = ((CraftPlayer) player).getHandle();
+        return entityPlayer.ping;
     }
 
     public static String formatLongHour(long time) {

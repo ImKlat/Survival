@@ -33,11 +33,6 @@ import es.hulk.survival.managers.recipe.recipes.iron.armor.IronBoots;
 import es.hulk.survival.managers.recipe.recipes.iron.armor.IronChestplate;
 import es.hulk.survival.managers.recipe.recipes.iron.armor.IronHelmet;
 import es.hulk.survival.managers.recipe.recipes.iron.armor.IronLeggins;
-import es.hulk.survival.managers.recipe.recipes.netherite.*;
-import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteBoots;
-import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteChestplate;
-import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteHelmet;
-import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteLeggings;
 import es.hulk.survival.managers.recipe.recipes.other.*;
 import es.hulk.survival.managers.recipe.recipes.stone.StoneAxe;
 import es.hulk.survival.managers.recipe.recipes.stone.StonePickaxe;
@@ -47,15 +42,10 @@ import es.hulk.survival.managers.recipe.recipes.wood.WoodAxe;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodPickaxe;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodShovel;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodSword;
-import es.hulk.survival.managers.recipe.smithingtable.EnchantedGoldenApple;
-import es.hulk.survival.managers.recipe.smithingtable.NameTag;
 
 public class RecipeManager {
 
     public void load() {
-        NameTag.load();
-        EnchantedGoldenApple.load();
-
         WoodSword.load();
         WoodPickaxe.load();
         WoodAxe.load();
@@ -108,16 +98,6 @@ public class RecipeManager {
         EmeraldChestplate.load();
         EmeraldLeggings.load();
         EmeraldBoots.load();
-
-        NetheriteSword.load();
-        NetheriteFortunePickaxe.load();
-        NetheriteSilkPickaxe.load();
-        NetheriteAxe.load();
-        NetheriteShovel.load();
-        NetheriteHelmet.load();
-        NetheriteChestplate.load();
-        NetheriteLeggings.load();
-        NetheriteBoots.load();
 
         CustomExperienceBottle.load();
         FortuneSword.load();

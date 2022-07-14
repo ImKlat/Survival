@@ -48,7 +48,7 @@ public class SettingsMenu extends Menu {
         buttons.put(11, new Button() {
             @Override
             public ItemStack getButtonItem(Player p0) {
-                return new ItemBuilder(Material.RED_BED)
+                return new ItemBuilder(Material.BED)
                         .data(0)
                         .name(Utils.color("&ATp a tu cama"))
                         .build();
@@ -63,7 +63,7 @@ public class SettingsMenu extends Menu {
         buttons.put(12, new Button() {
             @Override
             public ItemStack getButtonItem(Player p0) {
-                return new ItemBuilder(Material.GRASS_BLOCK)
+                return new ItemBuilder(Material.GRASS)
                         .data(0).name("&aSeed del mundo")
                         .lore(Arrays.asList("&aLa seed del mundo es: ", "", "&e" + Bukkit.getWorlds().get(0).getSeed(), ""))
                         .build();
@@ -92,7 +92,7 @@ public class SettingsMenu extends Menu {
         buttons.put(15, new Button() {
             @Override
             public ItemStack getButtonItem(Player p0) {
-                return new ItemBuilder(Material.WHITE_BED)
+                return new ItemBuilder(Material.BED)
                         .data(0)
                         .name("&aTe dice las coords de tu cama")
                         .build();
@@ -121,7 +121,7 @@ public class SettingsMenu extends Menu {
         buttons.put(28, new Button() {
             @Override
             public ItemStack getButtonItem(Player p0) {
-                return new ItemBuilder(Material.CLOCK)
+                return new ItemBuilder(Material.WATCH)
                         .data(0).name("&aTe dice el tiempo jugado")
                         .build();
             }

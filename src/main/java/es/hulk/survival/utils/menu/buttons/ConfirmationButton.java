@@ -17,7 +17,7 @@ public class ConfirmationButton extends Button
 
     @Override
     public ItemStack getButtonItem(final Player player) {
-        return new ItemBuilder(Material.WHITE_WOOL).data((short)(this.confirm ? 5 : 14)).name(this.confirm ? "&aConfirm" : "&cCancel").build();
+        return new ItemBuilder(Material.WOOL).data((short)(this.confirm ? 5 : 14)).name(this.confirm ? "&aConfirm" : "&cCancel").build();
     }
 
     @Override

@@ -14,7 +14,7 @@ public class BackButton extends Button
 
     @Override
     public ItemStack getButtonItem(final Player player) {
-        return new ItemBuilder(Material.RED_BED).name("&cGo back").build();
+        return new ItemBuilder(Material.BED).name("&cGo back").build();
     }
 
     @Override
