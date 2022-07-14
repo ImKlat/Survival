@@ -38,6 +38,7 @@ import org.bukkit.Difficulty;
 import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +99,8 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole(Utils.getLINE());
         this.loadListeners();
         this.loadCommands();
+
+        if (this.mainConfig.getBoolean("PIXELMON_LEGENDARYSPAWN_TASK")) this.legendarySpawnTask(this);
     }
 
     @Override
@@ -201,6 +204,16 @@ public class Survival extends JavaPlugin {
     private void scoreboardCounter() {
         this.isCounterEnabled = false;
         this.isSpeedRun = false;
+    }
+
+    private void legendarySpawnTask(Survival plugin) {
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "legendaryspawn");
+            }
+        }.runTaskLaterAsynchronously(this, 36000);
     }
 
     public static Survival get() {
