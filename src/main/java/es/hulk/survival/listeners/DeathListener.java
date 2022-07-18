@@ -5,20 +5,18 @@ import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.counter.CounterHelper;
 import es.hulk.survival.utils.location.OfflinePlayerLocation;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
-import org.bukkit.block.DoubleChest;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -61,6 +59,12 @@ public class DeathListener implements Listener {
         player.sendMessage(Utils.color("&bY&7: &a" + OfflinePlayerLocation.coordinateY(player)));
         player.sendMessage(Utils.color("&bZ&7: &a" + OfflinePlayerLocation.coordinateZ(player)));
         player.sendMessage("");
+
+        TextComponent tc = new TextComponent();
+        tc.setText("Click here to get teleported to the location!");
+        tc.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tppos " + location.getX() + " " + (location.getY() + 1)  + " " + location.getZ()));
+
+        player.spigot().sendMessage(tc);
 
         if (Survival.get().isSpeedRunDeathCounter()) {
             if (Survival.get().getSpeedRunners().contains(player)) {
