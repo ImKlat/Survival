@@ -9,8 +9,6 @@ import es.hulk.tablist.TablistAdapter;
 import es.hulk.tablist.TablistColumn;
 import es.hulk.tablist.TablistLayout;
 import es.hulk.tablist.utils.Skin;
-import org.bukkit.Statistic;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;

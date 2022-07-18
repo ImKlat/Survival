@@ -13,8 +13,6 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
-
 /**
  * Created by Hulk
  * at 17/04/2022 20:37

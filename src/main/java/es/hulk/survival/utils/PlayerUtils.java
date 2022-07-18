@@ -1,10 +1,7 @@
 package es.hulk.survival.utils;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Statistic;
-import org.bukkit.World;
-import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 
 public class PlayerUtils {
