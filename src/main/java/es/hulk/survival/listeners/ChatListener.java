@@ -61,6 +61,7 @@ public class ChatListener implements Listener {
         }
     }
 
+    @Deprecated
     @EventHandler
     public void chatEvent(PlayerChatEvent event) {
         Player player = event.getPlayer();

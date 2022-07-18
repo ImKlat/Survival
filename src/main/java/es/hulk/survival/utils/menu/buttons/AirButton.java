@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
-public class AirButton extends Button
-{
+@SuppressWarnings("unused")
+public class AirButton extends Button {
     @Override
     public ItemStack getButtonItem(final Player player) {
         return new ItemBuilder(Material.AIR).build();

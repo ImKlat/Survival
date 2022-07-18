@@ -6,9 +6,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
-
-public class PageButton extends Button
-{
+@SuppressWarnings("unused")
+public class PageButton extends Button {
     private final int mod;
     private final PaginatedMenu menu;
 

@@ -25,7 +25,7 @@ public class StartSpeedRunCommand extends BaseCommand {
     @Getter private static WorldManager worldManager;
     @Getter private static ItemStack[] inventory;
 
-    @Command(name = "speedrun.start", permission = "survival.speedrun.start", inGameOnly = true)
+    @Command(name = "speedrun.start", permission = "survival.speedrun.start")
 
     @Override
     public void onCommand(CommandArgs command) {

@@ -32,6 +32,7 @@ public class EnderChestCommand extends BaseCommand {
                 }
 
                 if (player.hasPermission("survival.command.enderchest")) {
+                    assert target != null;
                     player.openInventory(target.getEnderChest());
                     return;
                 }

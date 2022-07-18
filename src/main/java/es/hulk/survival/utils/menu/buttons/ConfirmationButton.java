@@ -9,8 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
-public class ConfirmationButton extends Button
-{
+@SuppressWarnings("unused")
+public class ConfirmationButton extends Button {
+
     private final boolean confirm;
     private final TypeCallback<Boolean> callback;
     private final boolean closeAfterResponse;

@@ -5,8 +5,6 @@ import org.bukkit.entity.Player;
 
 public class BedLocation {
 
-    private Location location;
-
     public static int bedCoordinateX(Player player) {
         return (int) player.getBedSpawnLocation().getX();
     }

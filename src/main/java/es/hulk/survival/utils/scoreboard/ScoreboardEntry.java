@@ -1,6 +1,6 @@
 package es.hulk.survival.utils.scoreboard;
 
-import lombok.Setter;
+import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
@@ -9,9 +9,10 @@ import org.bukkit.scoreboard.Team;
 public class ScoreboardEntry {
 
 	private final ScoreboardManager board;
-	@Setter private String text, identifier;
+	private String text;
+	private final String identifier;
 	private Team team;
-	private final int position;
+	@Getter private final int position;
 
 	public ScoreboardEntry(ScoreboardManager board, String text, int position) {
 		this.board = board;
@@ -98,9 +99,6 @@ public class ScoreboardEntry {
     public void setText(final String text) {
         this.text = text;
     }
-    
-    public void setIdentifier(final String identifier) {
-        this.identifier = identifier;
-    }
+
 }
 

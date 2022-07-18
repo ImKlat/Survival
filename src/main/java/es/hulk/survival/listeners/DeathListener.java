@@ -67,7 +67,7 @@ public class DeathListener implements Listener {
         player.spigot().sendMessage(tc);
 
         if (Survival.get().isSpeedRunDeathCounter()) {
-            if (Survival.get().getSpeedRunners().contains(player)) {
+            if (Survival.get().getSpeedRunners().contains(player.getName())) {
                 CounterHelper.getTimer().setSeconds((int) (CounterHelper.getTimer().getSeconds() + TimeUnit.MINUTES.toSeconds(5)));
             }
         }

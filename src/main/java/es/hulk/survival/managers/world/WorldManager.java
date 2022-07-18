@@ -19,8 +19,7 @@ import org.bukkit.entity.Player;
 public class WorldManager {
 
     private String playerWorldName, playerNetherWorldName, playerEndWorldName;
-    private String playerName;
-    private Player player;
+    private final Player player;
     private final MultiverseCore core = (MultiverseCore) Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
 
     public WorldManager(String speedRunner) {

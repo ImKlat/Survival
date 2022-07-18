@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class ListLocationCommand extends BaseCommand {
 
-    WarpManager warpManager = Survival.get().getWarpManager();
+    private final WarpManager warpManager = Survival.get().getWarpManager();
 
     @Command(name = "location.list")
     @Override

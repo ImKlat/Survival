@@ -25,7 +25,7 @@ public class LocationCommand extends BaseCommand {
         new ClearLocationsCommand();
     }
 
-    private WarpManager warpManager = Survival.get().getWarpManager();
+    private final WarpManager warpManager = Survival.get().getWarpManager();
 
     @Command(name = "location")
 

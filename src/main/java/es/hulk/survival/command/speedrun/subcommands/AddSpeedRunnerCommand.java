@@ -4,6 +4,7 @@ import es.hulk.survival.Survival;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
+import es.hulk.survival.utils.speedrun.SpeedRunCommandUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -16,23 +17,14 @@ import org.bukkit.entity.Player;
 
 public class AddSpeedRunnerCommand extends BaseCommand {
 
-    @Command(name = "speedrun.add", permission = "survival.speedrun.add", inGameOnly = true)
+    @Command(name = "speedrun.add", permission = "survival.speedrun.add")
 
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
         Player target = Bukkit.getPlayer(args[0]);
-
-        if (target == null) {
-            player.sendMessage("§cPlayer not found");
-            return;
-        }
-
-        if (Survival.get().isSpeedRun()) {
-            player.sendMessage("§cSpeedrun already started");
-            return;
-        }
+        SpeedRunCommandUtils.addRemoveSpeedRunner(player, args);
         Survival.get().getSpeedRunners().add(target.getName());
         player.sendMessage("§aAdded §7" + target.getName() + " §ato the speedrun");
     }

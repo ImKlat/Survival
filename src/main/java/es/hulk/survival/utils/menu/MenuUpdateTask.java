@@ -3,6 +3,7 @@ package es.hulk.survival.utils.menu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+@SuppressWarnings("unused")
 public class MenuUpdateTask implements Runnable {
 
     @Override

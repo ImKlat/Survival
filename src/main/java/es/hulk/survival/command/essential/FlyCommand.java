@@ -1,7 +1,6 @@
 package es.hulk.survival.command.essential;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -11,8 +10,6 @@ import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
 public class FlyCommand extends BaseCommand {
-
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @Command(name = "fly")
 

@@ -8,8 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
-public class JumpToPageButton extends Button
-{
+public class JumpToPageButton extends Button {
     private final int page;
     private final PaginatedMenu menu;
     private final boolean current;

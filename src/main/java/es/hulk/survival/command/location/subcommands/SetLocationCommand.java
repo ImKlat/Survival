@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class SetLocationCommand extends BaseCommand {
 
-    private WarpManager warpManager = Survival.get().getWarpManager();
+    private final WarpManager warpManager = Survival.get().getWarpManager();
 
     @Command(name = "setlocation")
     @Override

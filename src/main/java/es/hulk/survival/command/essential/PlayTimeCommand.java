@@ -27,6 +27,7 @@ public class PlayTimeCommand extends BaseCommand {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
+                assert false;
                 player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl jugador &4" + target.getName() + " &cno se ha encontrado."));
                 return;
             }

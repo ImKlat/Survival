@@ -19,7 +19,7 @@ public class TimerRunnable extends BukkitRunnable {
     public void run() {
         if (!Survival.get().isCounterEnabled()) {
             try {
-                this.finalize();
+                this.cancel();
             } catch (Throwable e) {
                 e.printStackTrace();
             }

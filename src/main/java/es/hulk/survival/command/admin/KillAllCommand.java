@@ -16,8 +16,6 @@ public class KillAllCommand extends BaseCommand {
 
     @Override
     public void onCommand(CommandArgs command) {
-        Player player = command.getPlayer();
-
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.setHealth(0.0D);
         }

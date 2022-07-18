@@ -28,6 +28,7 @@ public class GetPlayerInformationCommand extends BaseCommand {
                 player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl Jugador " + args[0] + " no se ha encontrado."));
             }
 
+            assert target != null;
             String fullip = String.valueOf(target.getAddress());
             String[] ip = fullip.split("/");
             String goodip = ip[1];

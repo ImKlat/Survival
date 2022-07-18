@@ -1,14 +1,14 @@
 package es.hulk.survival.utils.menu.pagination;
 
+import com.google.common.collect.Maps;
 import es.hulk.survival.utils.menu.Button;
 import es.hulk.survival.utils.menu.Menu;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
-
-public abstract class PaginatedMenu extends Menu
-{
+@SuppressWarnings("unused")
+public abstract class PaginatedMenu extends Menu {
     private int page;
 
     public PaginatedMenu() {
@@ -18,7 +18,7 @@ public abstract class PaginatedMenu extends Menu
 
     @Override
     public String getTitle(final Player player) {
-        return String.valueOf(this.getPrePaginatedTitle(player)) + " - " + this.page + "/" + this.getPages(player);
+        return this.getPrePaginatedTitle(player) + " - " + this.page + "/" + this.getPages(player);
     }
 
     public final void modPage(final Player player, final int mod) {
@@ -39,7 +39,7 @@ public abstract class PaginatedMenu extends Menu
     public final Map<Integer, Button> getButtons(final Player player) {
         final int minIndex = (int)((this.page - 1) * (double)this.getMaxItemsPerPage(player));
         final int maxIndex = (int)(this.page * (double)this.getMaxItemsPerPage(player));
-        final HashMap<Integer, Button> buttons = new HashMap<Integer, Button>();
+        final HashMap<Integer, Button> buttons = Maps.newHashMap();
         for (final Map.Entry<Integer, Button> entry : this.getAllPagesButtons(player).entrySet()) {
             int ind = entry.getKey();
             if (ind >= minIndex && ind < maxIndex) {
@@ -49,9 +49,7 @@ public abstract class PaginatedMenu extends Menu
         }
         final Map<Integer, Button> global = this.getGlobalButtons(player);
         if (global != null) {
-            for (final Map.Entry<Integer, Button> gent : global.entrySet()) {
-                buttons.put(gent.getKey(), gent.getValue());
-            }
+            buttons.putAll(global);
         }
         return buttons;
     }

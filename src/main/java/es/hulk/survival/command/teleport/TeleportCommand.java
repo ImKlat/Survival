@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 
 public class TeleportCommand extends BaseCommand {
 
-    private final Survival plugin = Survival.get();
-
     @Command(name = "teleport", aliases = "tp")
 
     @Override

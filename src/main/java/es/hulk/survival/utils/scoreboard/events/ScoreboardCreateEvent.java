@@ -32,10 +32,6 @@ public class ScoreboardCreateEvent extends Event implements Cancellable
         return this.cancelled;
     }
     
-    public static HandlerList getHandlerList() {
-        return ScoreboardCreateEvent.handlerList;
-    }
-    
     static {
         ScoreboardCreateEvent.handlerList = new HandlerList();
     }

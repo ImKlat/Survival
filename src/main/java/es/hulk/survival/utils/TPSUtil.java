@@ -10,7 +10,7 @@ import java.util.Deque;
 public class TPSUtil extends BukkitRunnable {
 
     private long lastTick;
-    private Deque<Long> tickIntervals;
+    private final Deque<Long> tickIntervals;
     int resolution = 40;
 
     public TPSUtil(Survival plugin) {

@@ -44,7 +44,7 @@ public class Scoreboard {
 
 		//Ensure that the thread has stopped running
 		if (this.thread != null) {
-			this.thread.stop();
+			this.thread.interrupt();
 			this.thread = null;
 		}
 
@@ -67,7 +67,7 @@ public class Scoreboard {
 
 	public void cleanup() {
 		if (this.thread != null) {
-			this.thread.stop();
+			this.thread.interrupt();
 			this.thread = null;
 		}
 
@@ -95,14 +95,6 @@ public class Scoreboard {
 		return this.boards;
 	}
 
-	public ScoreboardThread getThread() {
-		return this.thread;
-	}
-
-	public ScoreboardListener getListeners() {
-		return this.listeners;
-	}
-
 	public long getTicks() {
 		return this.ticks;
 	}
@@ -119,32 +111,9 @@ public class Scoreboard {
 		this.plugin = plugin;
 	}
 
-	public void setAdapter(final ScoreboardAdapter adapter) {
-		this.adapter = adapter;
-	}
-
-	public void setBoards(final Map<UUID, ScoreboardManager> boards) {
-		this.boards = boards;
-	}
-
-	public void setThread(final ScoreboardThread thread) {
-		this.thread = thread;
-	}
-
-	public void setListeners(final ScoreboardListener listeners) {
-		this.listeners = listeners;
-	}
-
 	public void setTicks(final long ticks) {
 		this.ticks = ticks;
 	}
 
-	public void setHook(final boolean hook) {
-		this.hook = hook;
-	}
-
-	public void setAssembleStyle(final ScoreboardStyle assembleStyle) {
-		this.assembleStyle = assembleStyle;
-	}
 }
 

@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 public class Utils {
 
-    @Getter private static String LINE = Utils.color("&7&m----------------------------------------");
-    @Getter private static String PREFIX = Utils.color("&7[&aSurvival&7] ");
+    @Getter private static final String LINE = Utils.color("&7&m----------------------------------------");
+    @Getter private static final String PREFIX = Utils.color("&7[&aSurvival&7] ");
 
     public static void sendConsole(String message) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
@@ -30,15 +30,5 @@ public class Utils {
     public static int getPing(Player player) {
         EntityPlayer entityPlayer = ((CraftPlayer) player).getHandle();
         return entityPlayer.ping;
-    }
-
-    public static String formatLongHour(long time) {
-        long totalSecs = time / 1000L;
-
-        long seconds = totalSecs % 60L;
-        long minutes = totalSecs % 3600L / 60L;
-        long hours = totalSecs / 3600L;
-
-        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 }

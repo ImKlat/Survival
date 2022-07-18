@@ -21,7 +21,7 @@ import org.bukkit.entity.Player;
 
 public class StopSpeedRunCommand extends BaseCommand {
 
-    @Command(name = "speedrun.stop", permission = "survival.speedrun.stop", inGameOnly = true)
+    @Command(name = "speedrun.stop", permission = "survival.speedrun.stop")
 
     @Override
     public void onCommand(CommandArgs command) {

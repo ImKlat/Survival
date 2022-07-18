@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Getter
+@Getter @SuppressWarnings("all")
 public class FileConfig {
 
     private final File file;

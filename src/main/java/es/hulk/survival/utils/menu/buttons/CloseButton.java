@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("unused")
 public class CloseButton extends Button
 {
     @Override

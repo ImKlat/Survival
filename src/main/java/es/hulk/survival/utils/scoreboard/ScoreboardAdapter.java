@@ -10,6 +10,4 @@ public interface ScoreboardAdapter {
 
 	List<String> getLines(Player player);
 
-	ScoreboardStyle getBoardStyle(Player player);
-
 }

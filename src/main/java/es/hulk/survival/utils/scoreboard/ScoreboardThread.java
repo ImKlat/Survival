@@ -1,5 +1,6 @@
 package es.hulk.survival.utils.scoreboard;
 
+import es.hulk.survival.Survival;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Objective;
@@ -7,6 +8,7 @@ import org.bukkit.scoreboard.Objective;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("all")
 public class ScoreboardThread extends Thread {
 
     private final Scoreboard assemble;
@@ -18,7 +20,7 @@ public class ScoreboardThread extends Thread {
 
     @Override
     public void run() {
-        while(true) {
+        while(Survival.get().isEnabled()) {
             //Tick
             try {
                 tick();

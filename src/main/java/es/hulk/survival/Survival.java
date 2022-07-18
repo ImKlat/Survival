@@ -69,6 +69,7 @@ public class Survival extends JavaPlugin {
     private boolean isSpeedRun;
     private boolean speedRunDeathCounter;
     private List<String> speedRunners = new ArrayList<>();
+    private boolean isEnabled = false;
 
     @Override
     public void onEnable() {
@@ -106,6 +107,7 @@ public class Survival extends JavaPlugin {
     @Override
     public void onDisable() {
         warpManager.saveWarps();
+        this.scoreboard.cleanup();
         this.scoreboard.getBoards().clear();
         this.tablist.disable();
     }
@@ -131,6 +133,7 @@ public class Survival extends JavaPlugin {
     public void loadProviders() {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
+            this.isEnabled = true;
             scoreboard.setTicks(2);
         }
 

@@ -1,7 +1,6 @@
 package es.hulk.survival.command.admin;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -9,8 +8,6 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 public class MoreCommand extends BaseCommand {
-
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @Command(name = "more", permission = "survival.command.more")
     @Override

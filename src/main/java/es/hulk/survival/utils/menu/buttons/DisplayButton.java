@@ -6,8 +6,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
-public class DisplayButton extends Button
-{
+@SuppressWarnings("unused")
+public class DisplayButton extends Button {
     private ItemStack itemStack;
     private boolean cancel;
 

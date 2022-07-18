@@ -34,10 +34,6 @@ public class ScoreboardDestroyEvent extends Event implements Cancellable
         return this.cancelled;
     }
     
-    public static HandlerList getHandlerList() {
-        return ScoreboardDestroyEvent.handlerList;
-    }
-    
     static {
         ScoreboardDestroyEvent.handlerList = new HandlerList();
     }

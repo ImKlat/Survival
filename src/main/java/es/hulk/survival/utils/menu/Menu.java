@@ -106,10 +106,6 @@ public abstract class Menu {
         return (int) (Math.ceil((highest + 1) / 9D) * 9D);
     }
 
-    public int getSlot(int x, int y) {
-        return ((9 * y) + x);
-    }
-
     public int getSize() {
         return -1;
     }
@@ -118,6 +114,7 @@ public abstract class Menu {
 
     public abstract Map<Integer, Button> getButtons(Player player);
 
+    @SuppressWarnings("unused")
     public void onClose(Player player) {
         if (task != null) {
             task.cancel();

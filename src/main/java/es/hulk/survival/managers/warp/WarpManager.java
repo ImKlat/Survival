@@ -10,7 +10,6 @@ import org.bukkit.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -27,10 +26,6 @@ public class WarpManager {
 
     public Warp getWarpByName(String name) {
         return this.warps.get(name);
-    }
-
-    public List<String> getWarpListByName() {
-        return new ArrayList<>(this.warps.keySet());
     }
 
     public void createWarp(String warpName, Location location) {

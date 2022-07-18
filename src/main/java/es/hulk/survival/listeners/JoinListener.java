@@ -16,12 +16,10 @@ public class JoinListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-    private final Survival plugin = Survival.get();
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        Player hulk = Bukkit.getPlayer(PlayerUUID.HULK);
 
         if (mainConfig.getBoolean("SEAL-KICK")) {
             if (player.getUniqueId().equals(PlayerUUID.NADAL)) {

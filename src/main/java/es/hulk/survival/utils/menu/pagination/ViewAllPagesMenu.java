@@ -1,5 +1,6 @@
 package es.hulk.survival.utils.menu.pagination;
 
+import com.google.common.collect.Maps;
 import es.hulk.survival.utils.menu.Button;
 import es.hulk.survival.utils.menu.Menu;
 import es.hulk.survival.utils.menu.buttons.BackButton;
@@ -8,10 +9,9 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
+@SuppressWarnings("unused")
+public class ViewAllPagesMenu extends Menu {
 
-public class ViewAllPagesMenu extends Menu
-{
-    @NonNull
     PaginatedMenu menu;
 
     @Override
@@ -21,7 +21,7 @@ public class ViewAllPagesMenu extends Menu
 
     @Override
     public Map<Integer, Button> getButtons(final Player player) {
-        final HashMap<Integer, Button> buttons = new HashMap<Integer, Button>();
+        final HashMap<Integer, Button> buttons = Maps.newHashMap();
         buttons.put(0, new BackButton(this.menu));
         int index = 10;
         for (int i = 1; i <= this.menu.getPages(player); ++i) {

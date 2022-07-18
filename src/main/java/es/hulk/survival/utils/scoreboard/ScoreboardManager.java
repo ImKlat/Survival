@@ -18,9 +18,6 @@ public class ScoreboardManager {
 	private final List<ScoreboardEntry> entries = new ArrayList<>();
 	private final List<String> identifiers = new ArrayList<>();
 	private final UUID uuid;
-
-	private org.bukkit.scoreboard.Scoreboard scoreboard;
-	private Objective objective;
 	private Scoreboard assemble;
 
 	public ScoreboardManager(Player player, Scoreboard assemble) {

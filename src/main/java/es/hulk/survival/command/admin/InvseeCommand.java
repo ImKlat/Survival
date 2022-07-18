@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 
 public class InvseeCommand extends BaseCommand {
 
-    @Command(name = "invsee", aliases = {"inv"}, permission = "survival.admin.invsee", inGameOnly = true)
+    @Command(name = "invsee", aliases = {"inv"}, permission = "survival.admin.invsee")
 
     @Override
     public void onCommand(CommandArgs command) {
