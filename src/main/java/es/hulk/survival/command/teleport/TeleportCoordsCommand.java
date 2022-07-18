@@ -9,7 +9,6 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class TeleportCoordsCommand extends BaseCommand {
-    private final Survival plugin = Survival.get();
 
     @Command(name = "tppos")
 
