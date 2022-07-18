@@ -36,6 +36,10 @@ public class DeathListener implements Listener {
         if (player == null) return;
         Location location = player.getLocation();
 
+        if (location.getBlockY() < 1) {
+            location.setY(1);
+        }
+
         location.getBlock().setType(Material.CHEST);
         location.getBlock().getRelative(BlockFace.EAST).setType(Material.CHEST);
         location.clone().add(0, 1, 0).getBlock().setType(Material.AIR);
