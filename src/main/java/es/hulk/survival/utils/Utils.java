@@ -1,11 +1,8 @@
 package es.hulk.survival.utils;
 
 import lombok.Getter;
-import net.minecraft.server.v1_12_R1.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
-import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,10 +22,5 @@ public class Utils {
 
     public static List<String> translate(List<String> in) {
         return in.stream().map(Utils::color).collect(Collectors.toList());
-    }
-
-    public static int getPing(Player player) {
-        EntityPlayer entityPlayer = ((CraftPlayer) player).getHandle();
-        return entityPlayer.ping;
     }
 }

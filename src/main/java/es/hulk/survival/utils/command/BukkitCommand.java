@@ -1,6 +1,5 @@
 package es.hulk.survival.utils.command;
 
-import org.apache.commons.lang.Validate;
 import org.bukkit.command.Command;
 import org.bukkit.command.*;
 import org.bukkit.plugin.Plugin;
@@ -47,12 +46,7 @@ public class BukkitCommand extends Command {
     }
 
     @Override
-    public List<String> tabComplete(CommandSender sender, String alias, String[] args)
-            throws CommandException, IllegalArgumentException {
-        Validate.notNull(sender, "Sender cannot be null");
-        Validate.notNull(args, "Arguments cannot be null");
-        Validate.notNull(alias, "Alias cannot be null");
-
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws CommandException, IllegalArgumentException {
         List<String> completions = null;
         try {
             if (completer != null) {

@@ -1,6 +1,5 @@
 package es.hulk.survival.command.teleport;
 
-import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -16,7 +15,6 @@ public class TeleportCoordsCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-        Survival.get().setCounter(31);
 
             if (args.length == 0) {
                 player.sendMessage(Utils.color("&cUsage: /tppos <x> <y> <z>"));

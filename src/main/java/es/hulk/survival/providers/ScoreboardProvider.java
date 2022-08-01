@@ -2,9 +2,7 @@ package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
-import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
-import es.hulk.survival.utils.counter.CounterHelper;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import org.bukkit.Bukkit;
@@ -29,44 +27,22 @@ public class ScoreboardProvider implements ScoreboardAdapter {
     @Override
     public List<String> getLines(Player player) {
         List<String> lines = new ArrayList<>();
-
-        if (Survival.get().isSpeedRun()) {
-            lines.add("&7" + fullDateHour());
-            lines.add("");
-            lines.add("&e&lMuertes: ");
-            for (Player online : Bukkit.getOnlinePlayers()) {
-                if (Survival.get().getSpeedRunners().contains(online.getName())) {
-                    lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
-                }
-            }
-            lines.add("");
-            lines.add("&e&lCronometro");
-            lines.add(" &7* &aDuracion&7: &f" + TimeUtil.convert(CounterHelper.getTimer().getSeconds()));
-            lines.add("");
-            lines.add("&e&lServidor: ");
-            lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
-            lines.add(" &7* &aTu Ping&7: &f" + Utils.getPing(player) + "ms");
-            lines.add("");
-            lines.add("&7frostpvp.net");
-        } else {
-            lines.add("&7" + fullDateHour());
-            lines.add("");
-            lines.add("&e&lMuertes: ");
-            for (Player online : Bukkit.getOnlinePlayers()) {
-                lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
-            }
-            lines.add("");
-            lines.add("&e&lServidor: ");
-            lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
-            lines.add(" &7* &aTPS&7: &f" + (int) Survival.get().getTpsUtil().getRoundedTPS());
-            lines.add(" &7* &aTu Ping&7: &f" + Utils.getPing(player) + "ms");
-            lines.add("");
-            lines.add("&7frostpvp.net");
+        lines.add("&7" + fullDateHour());
+        lines.add("");
+        lines.add("&e&lContador de Tiempo: ");
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getPlayTime(online));
         }
+        lines.add("");
+        lines.add("&e&lServidor: ");
+        lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
+        lines.add(" &7* &aTPS&7: &f" + (int) Survival.get().getTpsUtil().getRoundedTPS());
+        lines.add(" &7* &aTu Ping&7: &f" + player.getPing() + "ms");
+        lines.add("");
+        lines.add("&7hardcore.unai.site");
         return Utils.translate(lines);
     }
 
-    @Override
     public ScoreboardStyle getBoardStyle(Player player) {
         return ScoreboardStyle.MODERN;
     }

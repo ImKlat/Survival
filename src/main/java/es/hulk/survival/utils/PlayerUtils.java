@@ -19,7 +19,7 @@ public class PlayerUtils {
     }
 
     public static String getPlayTime(Player player) {
-        long ticks = player.getStatistic(Statistic.PLAY_ONE_TICK);
+        long ticks = player.getStatistic(Statistic.PLAY_ONE_MINUTE);
 
         long hour = ((ticks / 20) / 60) / 60;
         long minute = ticks / 1200 - hour * 60;
