@@ -12,15 +12,11 @@ import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
+import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import lombok.Getter;
 import org.bukkit.Bukkit;
-import org.bukkit.Difficulty;
-import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 public class Survival extends JavaPlugin {
@@ -28,25 +24,9 @@ public class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private TPSUtil tpsUtil;
 
-    private int counter = 0;
-    private boolean isPlaceholderAPI;
-
-    private boolean isCounterEnabled;
-    private boolean isSpeedRun;
-    private boolean speedRunDeathCounter;
-    private List<String> speedRunners = new ArrayList<>();
-
     @Override
     public void onEnable() {
         this.loadManagers();
-        this.scoreboardCounter();
-
-        this.setGamerules();
-
-        if (Bukkit.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            isPlaceholderAPI = true;
-        }
-
         Utils.sendConsole(Utils.getLINE());
         Utils.sendConsole("");
         Utils.sendConsole("&aSurvival &e- &f" + getDescription().getVersion());
@@ -54,7 +34,7 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&aAuthor&7: &f" + getDescription().getAuthors());
         Utils.sendConsole("&aVersion&7: &f1.19");
         Utils.sendConsole("");
-        this.loadProviders();
+        this.loadScoreboard();
         Utils.sendConsole(Utils.getLINE());
         this.loadListeners();
         this.loadCommands();
@@ -72,9 +52,10 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&8[&aSurvival&8] &eManagers loaded");
     }
 
-    public void loadProviders() {
+    public void loadScoreboard() {
         this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
         scoreboard.setTicks(2);
+        scoreboard.setAssembleStyle(ScoreboardStyle.MODERN);
     }
 
     public void loadListeners() {
@@ -91,18 +72,6 @@ public class Survival extends JavaPlugin {
         new TeleportCoordsCommand();
         new StatsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
-    }
-
-    public void setGamerules() {
-        for (World world : Bukkit.getWorlds()) {
-            world.setDifficulty(Difficulty.HARD);
-        }
-        Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
-    }
-
-    private void scoreboardCounter() {
-        this.isCounterEnabled = false;
-        this.isSpeedRun = false;
     }
 
     public static Survival get() {

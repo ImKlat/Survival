@@ -4,7 +4,6 @@ import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
-import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -18,10 +17,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
 
     @Override
     public String getTitle(Player player) {
-        if (Survival.get().isSpeedRun()) {
-            return Utils.color("&a&lSpeedRun &7| &f1.16.5");
-        }
-        return Utils.color("&a&lSurvival &7| &f1.16.5");
+        return Utils.color("&a&lHardcore &7| &f1.19");
     }
 
     @Override
@@ -41,10 +37,6 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         lines.add("");
         lines.add("&7hardcore.unai.site");
         return Utils.translate(lines);
-    }
-
-    public ScoreboardStyle getBoardStyle(Player player) {
-        return ScoreboardStyle.MODERN;
     }
 
     private String fullDateHour() {
